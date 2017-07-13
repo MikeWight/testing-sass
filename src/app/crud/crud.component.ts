@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../user.service";
 
 @Component({
   selector: 'app-crud',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrudComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+  }
+  addUser(){
+    this.userService.addUser({
+      name: "Steve",
+      nickname: "The killer"
+    });
   }
 
 }
