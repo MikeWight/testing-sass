@@ -1,0 +1,22 @@
+$poop-it-out: #B5520B;
+$poopy: #38240C;
+$poop: #6B4C13;
+$poop-conference: #C29325;
+$poop-brown: #593001;
+
+
+
+.pootun {
+  background-color: white;
+  border: 4px solid black;
+  color: $poop;
+  margin-bottom: 10px;
+  &:hover {
+    background-color: $poop;
+    color: white;
+  }
+}
+
+.poorders {
+  border: 20px solid $poop-conference;
+}

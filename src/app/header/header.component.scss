@@ -1,0 +1,15 @@
+@import './../app.component';
+
+.poo-nav {
+  border-bottom: 2px solid $poop-conference;
+  background-color: $poop;
+  color: white;
+  a {
+    color: white;
+    &:hover {
+      background-color: white;
+      color: $poop;
+      cursor: pointer;
+    }
+  }
+}
