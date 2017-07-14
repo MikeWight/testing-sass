@@ -1,11 +1,21 @@
 <div *ngIf="users" class="row">
-  <div *ngFor='let user of users;'  class="well user-list-container col-xs-12 col-sm-12 col-md-6">
-    <h2 class="well well-sm">
-      {{user.name | uppercase}}
-    </h2>
-    <button type="button" (click)="userHer(user)" class="btn btn-danger pootun">Load User</button>
+  <app-crud></app-crud>
+  <div class="col-xs-8">
+    <div *ngFor='let user of users;' class="well user-list-container">
+      <h2 class="well well-sm">
+        {{user.name | uppercase}}
+      </h2>
+      <button type="button" (click)="userHer(user)" class="btn btn-danger pootun">Load User</button>
 
 
+    </div>
+  </div>
+
+
+
+
+  <div class="col-xs-4">
+
+    <app-user [user]="user"></app-user>
   </div>
 </div>
-<app-user [user]="user"></app-user>

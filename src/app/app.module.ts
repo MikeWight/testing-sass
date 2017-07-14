@@ -7,6 +7,8 @@ import { UserlistComponent } from './userlist/userlist.component';
 import {UserService} from "./user.service";
 import { HeaderComponent } from './header/header.component';
 import { CrudComponent } from './crud/crud.component';
+import {PooService} from "./poo.service";
+import { PooComponent } from './poo/poo.component';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,13 @@ import { CrudComponent } from './crud/crud.component';
     UserComponent,
     UserlistComponent,
     HeaderComponent,
-    CrudComponent
+    CrudComponent,
+    PooComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [UserService],
+  providers: [UserService, PooService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
