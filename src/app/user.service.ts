@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import {User} from "./user";
+import {Thepoo} from "./thepoo";
 
 @Injectable()
 export class UserService {
+
+  id: number;
+  pooId: number;
 
   users: User[] = [
     {
@@ -49,5 +53,16 @@ export class UserService {
     this.users.push(user);
   }
 
+  addPoo(poo: Thepoo){
+    this.users[0].poos.push(poo);
+  }
+
+  removePoo(){
+    this.users[this.id].poos.splice(this.pooId, 1);
+  }
+
+  modifyPoo(poo: Thepoo){
+    this.users[this.id].poos[this.pooId] = poo;
+  }
 
 }

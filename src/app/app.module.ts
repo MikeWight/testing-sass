@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { CrudComponent } from './crud/crud.component';
 import {PooService} from "./poo.service";
 import { PooComponent } from './poo/poo.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PooComponent } from './poo/poo.component';
     PooComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [UserService, PooService],
   bootstrap: [AppComponent]

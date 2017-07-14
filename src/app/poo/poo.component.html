@@ -1,5 +1,7 @@
-<div *ngFor='let poo of poos;'>
-  <h3>Size: {{poo.size}}</h3>
-  <h3>Smell: {{poo.smell}}</h3>
+<div *ngFor='let poo of poos;let i = index;' class="poo-container">
+  <h3>Poo number: {{i}}</h3>
+  <h4>Size: {{poo.size}}</h4>
+  <h4>Smell: {{poo.smell}}</h4>
   <span>Date: {{poo.dateAndTime | date}}</span>
 </div>
+

@@ -1,14 +1,21 @@
 <div>
   <div class="col-xs-4">
-    <button class="btn btn-danger full-pootun" (click)="addUser()">ADD USER</button>
+    <button class="btn btn-danger full-pootun" (click)="addPoo()">ADD POO</button>
 
   </div>
   <div class="col-xs-4">
-    <button class="btn btn-danger full-pootun">DELETE USER</button>
+    <button class="btn btn-danger full-pootun" (click)="deletePoo()">DELETE POO</button>
 
   </div>
   <div class="col-xs-4">
-    <button class="btn btn-danger full-pootun">MOFIDY USER</button>
+    <button class="btn btn-danger full-pootun" (click)="modifyPoo()">MOFIDY POO</button>
 
   </div>
+
 </div>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <label for="size">Size</label>
+  <input type="text" id="size" formControlName="size" class="form-control">
+  <label for="smell">Smell</label>
+  <input type="text" id="smell" formControlName="smell" class="form-control">
+</form>
