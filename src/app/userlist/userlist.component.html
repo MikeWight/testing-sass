@@ -1,11 +1,11 @@
 <div *ngIf="users" class="row">
   <app-crud></app-crud>
   <div class="col-xs-8">
-    <div *ngFor='let user of users;' class="well user-list-container">
+    <div *ngFor='let user of users;let id = index;' class="well user-list-container">
       <h2 class="well well-sm">
         {{user.name | uppercase}}
       </h2>
-      <button type="button" (click)="userHer(user)" class="btn btn-danger pootun">Load User</button>
+      <button type="button" (click)="userHer(id, user)" class="btn btn-danger pootun">Load User</button>
 
 
     </div>

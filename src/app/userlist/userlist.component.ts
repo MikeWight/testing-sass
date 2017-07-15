@@ -12,8 +12,9 @@ export class UserlistComponent implements OnInit {
   users: User[];
   user: User;
 
-  userHer(user:User){
+  userHer(id: number, user:User){
     this.user = user;
+    this.userService.userID(id);
   }
 
   constructor(private userService: UserService) { }
