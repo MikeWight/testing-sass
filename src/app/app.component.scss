@@ -8,7 +8,7 @@ $poop-brown: #593001;
 
 .pootun {
   background-color: white;
-  border: 4px solid black;
+  border: 1px solid black;
   color: $poop;
   margin-bottom: 10px;
   &:hover {
@@ -19,4 +19,22 @@ $poop-brown: #593001;
 
 .poorders {
   border: 20px solid $poop-conference;
+}
+
+.full-pootun {
+  @extend .pootun;
+  width: 100%;
+}
+
+.right-pootun {
+  @extend .pootun;
+  float: right;
+  margin-top: 10px;
+  clear: both;
+}
+
+.clearBoth {
+  width: 100%;
+  clear: both;
+  float: left;
 }

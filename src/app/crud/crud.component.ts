@@ -60,6 +60,11 @@ export class CrudComponent implements OnInit, OnDestroy {
     this.userService.addPoo(this.poo);
   }
 
+  clearThePoo(){
+    this.signupForm.reset();
+    this.userService.removePooId();
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

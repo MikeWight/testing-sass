@@ -13,22 +13,6 @@ export class UserService {
 
   users: User[] = [
     {
-      name:"Dubm",
-      nickname: "Time",
-      poos: [
-        {
-        size: 12,
-        smell: 4,
-        dateAndTime: new Date()
-      },
-        {
-          size: 8,
-          smell: 2,
-          dateAndTime: new Date()
-        }
-      ]
-    },
-    {
       name: "mike",
       nickname:"Awesome",
       poos: [
@@ -88,7 +72,7 @@ export class UserService {
     this.editMode = true;
   }
 
-  removePooId(id: number){
+  removePooId(){
     this.pooId = null;
     this.editMode = false;
   }

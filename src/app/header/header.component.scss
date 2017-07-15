@@ -1,14 +1,15 @@
 @import './../app.component';
 
 .poo-nav {
-  border-bottom: 2px solid $poop-conference;
-  background-color: $poop;
-  color: white;
+  border-bottom: 1px solid $poop-conference;
+  background-color: white;
+  color: $poop;
   a {
-    color: white;
+    color: $poop;
     &:hover {
-      background-color: white;
-      color: $poop;
+      background-color: $poop;
+      border: 1px solid $poop-conference;
+      color: white;
       cursor: pointer;
     }
   }

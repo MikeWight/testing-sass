@@ -1,8 +1,11 @@
 <div *ngIf="userGotTime()">
   <div>
-    <div class="col-xs-12" *ngIf="!editingTime()">
-      <button class="btn btn-danger full-pootun" (click)="addPoo()">ADD POO</button>
+    <div class="clearBoth">
+      <div class="col-xs-6" *ngIf="!editingTime()">
+        <button class="btn btn-danger full-pootun" (click)="addPoo()">ADD POO</button>
+      </div>
     </div>
+
     <div *ngIf="editingTime()">
       <div class="col-xs-6">
         <button class="btn btn-danger full-pootun" (click)="modifyPoo()">MOFIDY POO</button>
@@ -17,9 +20,24 @@
     </div>
   </div>
   <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-    <label for="size">Size</label>
-    <input type="text" id="size" formControlName="size" class="form-control">
-    <label for="smell">Smell</label>
-    <input type="text" id="smell" formControlName="smell" class="form-control">
+    <div class="col-xs-2">
+      <label for="size">Size</label>
+    </div>
+    <div class="col-xs-4">
+      <input type="text" id="size" formControlName="size" class="form-control">
+    </div>
+    <div class="col-xs-2">
+      <label for="smell">Smell</label>
+    </div>
+    <div class="col-xs-4">
+      <input type="text" id="smell" formControlName="smell" class="form-control">
+    </div>
+
+
+
   </form>
+  <div class="col-xs-12">
+    <button class="btn btn-danger right-pootun" (click)="clearThePoo()">Clear</button>
+
+  </div>
 </div>
