@@ -1,5 +1,5 @@
 require('./config/config');
-
+let {mongoose} = require('./db/mongoose');
 let express = require('express');
 let path = require('path');
 let favicon = require('serve-favicon');
@@ -42,11 +42,7 @@ app.options("/*", function(req, res, next){
 });
 
 app.use('/auth', require('./routes/auth'));
-app.use('/member', require('./routes/member'));
-app.use('/coverage', require('./routes/coverage'));
-app.use('/statement', require('./routes/statement'));
-app.use('/provider', require('./routes/provider'));
-app.use('/translation', require('./routes/translation'));
+app.use('/user', require('./routes/user'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
