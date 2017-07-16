@@ -1,0 +1,15 @@
+{
+  "test": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/gmpJSTest",
+    "JWT_SECRET": "poupouwfpoawjfpaojfn",
+    "API_URI": "https://api.medavie.bluecross.ca"
+  },
+
+  "development": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/gmpJS",
+    "JWT_SECRET": "poupouwfpoaweojfpoawjfe",
+    "API_URI": "https://api.medavie.bluecross.ca"
+  }
+}

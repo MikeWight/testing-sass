@@ -2,19 +2,19 @@
   <div>
     <div class="clearBoth">
       <div class="col-xs-12" *ngIf="!editingTime()">
-        <button class="btn btn-danger btn-sm full-pootun" (click)="onSubmit()" [disabled]="validForm()">ADD POO</button>
+        <button class="btn btn-danger btn-sm full-pootun" (click)="onSubmit()" [disabled]="!signupForm.valid">ADD POO</button>
       </div>
     </div>
 
     <div *ngIf="editingTime()">
       <div class="col-xs-12 col-sm-6">
-        <button class="btn btn-danger btn-sm full-pootun" (click)="onSubmit()" [disabled]="validForm()">MOFIDY POO</button>
+        <button class="btn btn-danger btn-sm full-pootun" (click)="onSubmit()" [disabled]="!signupForm.valid">MOFIDY POO</button>
 
       </div>
 
 
       <div class="col-xs-12 col-sm-6">
-        <button class="btn btn-danger btn-sm full-pootun" (click)="deletePoo()" [disabled]="validForm()">DELETE POO</button>
+        <button class="btn btn-danger btn-sm full-pootun" (click)="deletePoo()" [disabled]="!signupForm.valid">DELETE POO</button>
 
       </div>
     </div>

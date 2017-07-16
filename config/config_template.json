@@ -1,0 +1,15 @@
+{
+  "test": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/{dbName}",
+    "JWT_SECRET": "{Insert secret here}",
+    "API_URI": "https://{host:port}"
+  },
+
+  "development": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/{dbName}",
+    "JWT_SECRET": "{Insert secret here}",
+    "API_URI": "https://{host:port}"
+  }
+}
