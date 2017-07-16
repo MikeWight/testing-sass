@@ -1,20 +1,21 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const PooSchema = new Schema('poo', {
+const PooSchema = new Schema({
     size: {
-        type: Number
+        type: Number,
+      required: true
     },
     smell: {
-        type: Number
+        type: Number,
+      required: true
     },
     dateAndTime: {
         type: Date,
         default: new Date()
     },
     _creator: {
-        required: true,
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'user'
     }
 });
