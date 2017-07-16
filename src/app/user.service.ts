@@ -70,6 +70,7 @@ export class UserService {
   pooID(id: number){
     this.pooId = id;
     this.editMode = true;
+    console.log('Got Poo Id, now in edit mode')
   }
 
   removePooId(){
@@ -79,6 +80,7 @@ export class UserService {
 
   addPoo(poo: Thepoo){
     if (!this.editMode){
+      console.log("Not in edit mode");
       this.users[this.id].poos.push(poo);
     } else {
       this.users[this.id].poos[this.pooId] = poo;

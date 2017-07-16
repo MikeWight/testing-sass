@@ -14,10 +14,12 @@ export class CrudComponent implements OnInit, OnDestroy {
   poo : Thepoo;
   subscription: any;
   editingMode: boolean;
+  resetValidate: boolean =false;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.resetValidate = true;
     this.signupForm = new FormGroup({
       'size': new FormControl(null, Validators.required),
       'smell': new FormControl(null, Validators.required)
@@ -33,6 +35,7 @@ export class CrudComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(){
+    console.log(this.signupForm.get('size'));
     let poo: Thepoo = {
       size: this.signupForm.get('size').value,
       smell: this.signupForm.get('smell').value,
@@ -40,6 +43,7 @@ export class CrudComponent implements OnInit, OnDestroy {
     };
     this.poo = poo;
     this.addPoo();
+    this.clearThePoo();
   }
 
   userGotTime(){
@@ -48,6 +52,17 @@ export class CrudComponent implements OnInit, OnDestroy {
 
   editingTime(){
     return this.userService.editingMode();
+  }
+
+  validForm(){
+    if (!this.resetValidate){
+      return (!this.signupForm.get('size').valid
+        && this.signupForm.get('size').touched) ||
+        (!this.signupForm.get('smell').valid &&
+        this.signupForm.get('smell').touched)
+    }
+    this.resetValidate = false;
+    return true;
   }
 
   addPoo(){
@@ -63,6 +78,7 @@ export class CrudComponent implements OnInit, OnDestroy {
   clearThePoo(){
     this.signupForm.reset();
     this.userService.removePooId();
+    this.resetValidate = true;
   }
 
   ngOnDestroy() {

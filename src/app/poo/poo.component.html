@@ -1,8 +1,8 @@
 
-  <div *ngFor='let poo of poos;let id = index;' class="poo-container">
+  <div  *ngFor='let poo of poos;let id = index;' class="poo-container well col-xs-6 col-sm-4 col-lg-3">
     <h3>Poo number: {{id}}</h3>
     <h4>Size: {{poo.size}}</h4>
     <h4>Smell: {{poo.smell}}</h4>
     <span>Date: {{poo.dateAndTime | date}}</span>
-    <button class="btn btn-danger full-pootun" (click)="thePoo(id, poo)">Load Poo</button>
+    <button class="btn btn-danger btn-sm right-pootun" (click)="thePoo(id, poo)">Load Poo</button>
   </div>
