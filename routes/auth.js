@@ -13,7 +13,7 @@ router.post('/', async (req, res, next) => {
     let user = new User({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      password: bcrypt.hashSync(req.body.password, 10),
+      password: req.body.password,
       email: req.body.email
     });
     console.log(user);
@@ -38,6 +38,18 @@ router.post('/signin', async (req, res, next) => {
     console.log("fuck 4:" +e);
     res.status(400).send(e);
   }
+});
+
+router.delete('/logout', authenticate, async (req, res) => {
+
+  try {
+    await req.user.removeToken(req.token);
+    res.status(200).send();
+  } catch (e) {
+    console.log(e);
+    res.status(400).send();
+  }
+
 });
 
 
