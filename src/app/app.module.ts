@@ -10,6 +10,14 @@ import { CrudComponent } from './crud/crud.component';
 import {PooService} from "./poo.service";
 import { PooComponent } from './poo/poo.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { PooHolderComponent } from './poo-holder/poo-holder.component';
+import {AppRoutingModule} from "./app-routing.module";
+import {AuthService} from "./auth/auth.service";
+import {AuthenticationComponent} from "./auth/authentication.component";
+import {SigninComponent} from "./auth/signin/signin.component";
+import {SignupComponent} from "./auth/signup/signup.component";
+import {LogoutComponent} from "./auth/logout/logout.component";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -18,13 +26,20 @@ import {ReactiveFormsModule} from "@angular/forms";
     UserlistComponent,
     HeaderComponent,
     CrudComponent,
-    PooComponent
+    PooComponent,
+    PooHolderComponent,
+    AuthenticationComponent,
+    SigninComponent,
+    SignupComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [UserService, PooService],
+  providers: [UserService, PooService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

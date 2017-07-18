@@ -41,7 +41,7 @@ app.options("/*", function(req, res, next){
     next();
 });
 
-app.use('/auth', require('./routes/auth'));
+app.use('/authentication', require('./routes/auth'));
 app.use('/user', require('./routes/user'));
 
 // catch 404 and forward to error handler
