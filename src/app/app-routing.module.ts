@@ -7,7 +7,7 @@ import {SignupComponent} from "./auth/signup/signup.component";
 import {LogoutComponent} from "./auth/logout/logout.component";
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'poo', pathMatch: 'full'},
+  {path: '', redirectTo: 'auth', pathMatch: 'full'},
   {path: 'poo', component: PooHolderComponent},
   {path: 'auth', component: AuthenticationComponent, children: [
     {path: '', redirectTo: 'signin', pathMatch: 'full'},
@@ -15,7 +15,7 @@ const appRoutes: Routes = [
     {path: 'signup', component: SignupComponent},
     {path: 'logout', component: LogoutComponent},
   ]},
-  {path: '**', redirectTo: 'poo'},
+  {path: '**', redirectTo: 'auth'},
 ];
 
 

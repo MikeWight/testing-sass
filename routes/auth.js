@@ -19,7 +19,10 @@ router.post('/', async (req, res, next) => {
     console.log(user);
     await user.save();
     const token = await user.generateAuthTokens();
-    res.header('x-auth', token).send(user.email);
+    console.log(token);
+    res.status(200).json({
+      token
+    });
   } catch (e) {
     console.log(e);
     res.status(400).send(e);
@@ -33,21 +36,24 @@ router.post('/signin', async (req, res, next) => {
     const user = await User.findByCredentials(req.body.email, req.body.password);
     console.log(user);
     const token = await user.generateAuthTokens();
-    res.header('x-auth', token).send(user.email);
+    res.status(200).json({
+      token
+    });
   } catch (e) {
     console.log("fuck 4:" +e);
-    res.status(400).send(e);
+    res.status(400).send({ error: "You suck"});
   }
 });
 
 router.delete('/logout', authenticate, async (req, res) => {
 
   try {
+    console.log("Fuck" + req);
     await req.user.removeToken(req.token);
-    res.status(200).send();
+    res.status(200).send({good: "things went great"});
   } catch (e) {
     console.log(e);
-    res.status(400).send();
+    res.status(400).send({bad: e});
   }
 
 });

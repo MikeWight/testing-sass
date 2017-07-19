@@ -13,7 +13,14 @@ export class LogoutComponent {
     }
 
     onLogout() {
-        this.authService.logout();
+        this.authService.logout()
+          .subscribe(
+            data => {
+              console.log(data);
+              localStorage.clear();
+            },
+            error => {console.log(error)}
+          );
         this.router.navigate(['/auth', 'signin']);
     }
 

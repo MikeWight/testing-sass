@@ -17,28 +17,32 @@ export class SigninComponent {
 
     ngOnInit(): void {
         this.myForm = new FormGroup({
-            email: new FormControl(null, [
+            email: new FormControl("mike@hotmail.com", [
                 Validators.required,
                 Validators.email
             ]),
-            password: new FormControl(null, Validators.required)
+            password: new FormControl("123123", Validators.required)
         });
     }
 
     onSubmit(){
+      console.log("got here at leaset");
         const user = new User(
             this.myForm.value.email,
             this.myForm.value.password
         );
-        // this.authService.signin(user)
-        //     .subscribe(
-        //         data => {
-        //             localStorage.setItem('token', data.token);
-        //             localStorage.setItem('userId', data.userId);
-        //             this.router.navigateByUrl('/');
-        //         },
-        //         error => console.error(error)
-        //     );
-        this.myForm.reset();
+        this.authService.signin(user)
+          .subscribe(
+            data => {
+              console.log(data);
+              localStorage.setItem('token', data.token);
+            },
+            error => console.error(error)
+          );
+
     }
+
+  isLoggedIn(){
+    return this.authService.isLoggedIn();
+  }
 }

@@ -1,8 +1,8 @@
 let {User} = require('./../models/user');
 
 let authenticate  = (req, res, next) => {
-  let token = req.header('x-auth');
-
+  let token = req.headers.authorization;
+  console.log(token);
   User.findByToken(token).then((user) => {
     if (!user){
       return Promise.reject();
@@ -11,6 +11,7 @@ let authenticate  = (req, res, next) => {
     req.token = token;
     next();
   }).catch((e) => {
+    console.log(e);
     res.status(401).send();
   });
 

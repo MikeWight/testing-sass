@@ -2,13 +2,15 @@ import {Component, OnInit} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../auth.service";
 import {User} from "../user.model";
+import {Router} from "@angular/router";
 @Component({
     selector: 'app-signup',
     templateUrl: './signup.component.html'
 })
 export class SignupComponent implements OnInit {
 
-    constructor(private authService: AuthService) {
+    constructor(private authService: AuthService,
+                private router: Router) {
 
     }
 
@@ -35,13 +37,14 @@ export class SignupComponent implements OnInit {
 
         );
         this.authService.signup(user)
-          .then((res) => {
-            console.log(res);
-            this.myForm.reset();
-          })
-          .catch((e) => {
-            console.log(e);
-          });
+          .subscribe(
+            data => {
+
+              localStorage.setItem('token', data.token);
+              this.router.navigate(['./poo']);
+            },
+            error => console.error(error)
+          );
     }
 
 }
