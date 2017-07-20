@@ -37,7 +37,7 @@ export class SigninComponent {
               console.log(data);
               localStorage.setItem('token', data.token);
             },
-            error => console.error(error)
+            error => console.log(error)
           );
 
     }

@@ -1,34 +1,39 @@
 import {User} from "./user.model";
 import {Injectable} from "@angular/core";
-import {Headers, Http, Response} from "@angular/http";
+import {Headers, Response} from "@angular/http";
 
 import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class AuthService {
 
-    constructor(private http: Http) {
+    constructor(private http: HttpClient) {
 
     }
 
     signup(user: User) {
         const body = JSON.stringify(user);
-        const headers = new Headers({
+        const headers = new HttpHeaders({
             'Content-Type': 'application/json'
         });
         return this.http.post('http://localhost:3000/authentication', body, {headers: headers})
-          .map((response: Response) => response.json())
+          .map((response: Response) => {
+          console.log("work please");
+           console.log(response);
+          return response;
+          })
           .catch((error: Response) => {
-            console.log('youp 2');
-            return Observable.throw(error.json())
+            console.log(error);
+            return Observable.throw(error)
 
           });
     }
 
     signin = (user: User) => {
         const body = JSON.stringify(user);
-        const headers = new Headers({
+        const headers = new HttpHeaders({
             'Content-Type': 'application/json'
         });
         return this.http.post('http://localhost:3000/authentication/signin', body, {headers: headers})
@@ -40,7 +45,7 @@ export class AuthService {
 
     logout(){
 
-      const headers = new Headers({
+      const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')
       });

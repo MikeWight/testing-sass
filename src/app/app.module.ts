@@ -18,6 +18,7 @@ import {SigninComponent} from "./auth/signin/signin.component";
 import {SignupComponent} from "./auth/signup/signup.component";
 import {LogoutComponent} from "./auth/logout/logout.component";
 import {HttpModule} from "@angular/http";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import {HttpModule} from "@angular/http";
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [UserService, PooService, AuthService],
   bootstrap: [AppComponent]
